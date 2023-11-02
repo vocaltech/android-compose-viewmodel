@@ -12,8 +12,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -56,10 +61,35 @@ fun MainScreen() {
             Text("Launch TemperatureConverter activity")
         }
 
-        Button(onClick = { /*TODO*/ }) {
+        Button(
+            onClick = { /*TODO*/ },
+            enabled =  false
+        ) {
             Text("Launch UserLivedataActivity")
         }
     }
+}
+
+@Composable
+fun FunctionA() { // Unidirectional data flow
+    var switchState by remember { mutableStateOf(false) }
+
+    val onSwitchChange = { isChecked: Boolean ->
+        switchState = isChecked
+    }
+
+    FunctionB(switchState, onSwitchChange)
+}
+
+@Composable
+fun FunctionB(
+    switchState: Boolean,
+    onSwitchChange: (Boolean) -> Unit
+) {
+    Switch(
+        checked = switchState,
+        onCheckedChange = onSwitchChange
+    )
 }
 
 @Preview(showBackground = true)
@@ -67,5 +97,13 @@ fun MainScreen() {
 fun MainScreenPreview() {
     ComposeViewModelTheme {
         MainScreen()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun FunctionAPreview() {
+    ComposeViewModelTheme {
+        FunctionA()
     }
 }
