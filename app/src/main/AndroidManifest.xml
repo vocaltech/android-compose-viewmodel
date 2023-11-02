@@ -13,6 +13,11 @@
         android:theme="@style/Theme.ComposeViewModel"
         tools:targetApi="31">
         <activity
+            android:name=".UserLiveDataActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user_live_data"
+            android:theme="@style/Theme.ComposeViewModel" />
+        <activity
             android:name=".TemperatureConverterActivity"
             android:exported="false"
             android:label="@string/title_activity_temperature_converter"
