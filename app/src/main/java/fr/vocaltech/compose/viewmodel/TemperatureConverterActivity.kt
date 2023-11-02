@@ -127,7 +127,7 @@ fun InputRow(
 
         OutlinedTextField(
             value = textState,
-            onValueChange = { onTextChange(it) },
+            onValueChange = onTextChange,
             singleLine = true,
             label = { Text(text = "Enter temperature") },
             keyboardOptions = KeyboardOptions(
@@ -138,6 +138,7 @@ fun InputRow(
                 .width(240.dp),
             textStyle = TextStyle(fontWeight = FontWeight.Bold, fontSize = 32.sp)
         )
+
         Crossfade(
             targetState = isFahrenheit,
             label = "",
@@ -157,7 +158,6 @@ fun InputRow(
                 )
             }
         }
-
     }
 }
 
