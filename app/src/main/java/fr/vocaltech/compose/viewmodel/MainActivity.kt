@@ -62,8 +62,9 @@ fun MainScreen() {
         }
 
         Button(
-            onClick = { /*TODO*/ },
-            enabled =  false
+            onClick = {
+                context.startActivity(Intent(context, UserLiveDataActivity::class.java))
+            }
         ) {
             Text("Launch UserLivedataActivity")
         }
