@@ -58,7 +58,7 @@ fun MainScreen() {
         Button(onClick = {
             context.startActivity(Intent(context, TemperatureConverterActivity::class.java))
         }) {
-            Text("Launch TemperatureConverter activity")
+            Text("Launch TemperatureConverterActivity")
         }
 
         Button(
@@ -67,6 +67,12 @@ fun MainScreen() {
             }
         ) {
             Text("Launch UserLivedataActivity")
+        }
+
+        Button(onClick = {
+            context.startActivity(Intent(context, FlowActivity::class.java))
+        }) {
+            Text("Launch FlowActivity ")
         }
     }
 }
